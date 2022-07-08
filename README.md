@@ -6,6 +6,7 @@ This aplication is a REST API for run the language:
 You can view a the documentation on 
 
 ## Run the app
+On the terminal
 ```bash
 uvicorn main:app --reload
 ```
