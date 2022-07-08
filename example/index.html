@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ide Web</title>
+  <script src="https://cdn.jsdelivr.net/npm/js-base64@3.7.2/base64.min.js"></script>
+  <link rel= "stylesheet" type= "text/css" href= "style.css">
+</head>
+<body>
+  <script>
+    function runCode(event) {
+      event.preventDefault();
+      fetch('http://127.0.0.1:8000/run/', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          language:  document.getElementById("language").value,
+          code: Base64.encodeURI(document.getElementById("textCode").value),
+          input_source: "SSdtIGEgaW5wdXQ"
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("textResult").value = data.result;
+        console.log("data");
+      });
+    }
+  </script>
+
+  <h1>Ide Web</h1>
+
+  <div class="panel-container">
+
+    <div class="child-element">
+      <h2>Code</h2>
+      <textarea id="textCode" name="textCode" rows=10" cols="50" placeholder="Write your code here..."></textarea>
+      <button id="btnRun" type="button" name="btnRun" onclick="runCode(event)">Run</button>
+      <select name="languages" id="language">
+        <option value="python">Python</option>
+        <option value="cpp">C++</option>
+      </select>
+    </div>
+    
+    <div class="child-element">
+      <h2>Result</h2>
+      <textarea id="textResult" name="textResult" rows=10" cols="50" placeholder="Hello world..."></textarea>
+    </div>
+    
+  </div>
+  
+</body>
+</html>
