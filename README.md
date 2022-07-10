@@ -17,10 +17,10 @@ Open `example/index.html` on the browser.
 
 ![Sample Page](sample_page.gif)
 
-## Run a code
+## Request a code
 
 ### Request
-Run code in python
+Requesting a python's code.
 ```python
 x = input()
 print(x)
@@ -58,4 +58,3 @@ Pass code and input to base 64 on this [page](https://www.base64decode.org/).
     "result": "I'm a input\n",
     "error": ""
     }
-
