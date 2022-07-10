@@ -3,7 +3,6 @@ This aplication is a REST API for run the language:
 - Python
 - C++
 - Coming soon...
-You can view a the documentation on 
 
 ## Run the app
 On the terminal
